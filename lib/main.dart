@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage>
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(100.0),
+            padding: const EdgeInsets.fromLTRB(30.0,30.0,30.0,100.0),
             child: Column(
               children: <Widget>[
                 Text(
