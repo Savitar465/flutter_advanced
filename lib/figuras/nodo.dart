@@ -53,6 +53,19 @@ class Nodo extends CustomPainter {
         );
       }
 
+      // Si hay error, agregar un borde rojo
+      if (nodo.error.abs() > 0.01) {
+        Paint errorPaint = Paint()
+          ..style = PaintingStyle.stroke
+          ..color = Colors.red.shade400
+          ..strokeWidth = 3;
+        canvas.drawCircle(
+          Offset(nodo.x, nodo.y),
+          nodo.radio * 1.1,
+          errorPaint,
+        );
+      }
+
       paint.color = colorNodo;
       canvas.drawCircle(Offset(nodo.x, nodo.y), nodo.radio, paint);
 
@@ -82,13 +95,13 @@ class Nodo extends CustomPainter {
       );
 
       // Si tiene valor de activación, mostrarlo debajo del nodo
-      if (nodo.activado && nodo.valorActivacion > 0) {
+      if (nodo.activado && nodo.valorActivacion >= 0) {
         final valorText = TextSpan(
-          text: nodo.valorActivacion.toStringAsFixed(2),
+          text: nodo.valorActivacion.toStringAsFixed(3),
           style: TextStyle(
             color: Colors.black,
             fontSize: 10,
-            fontWeight: FontWeight.normal,
+            fontWeight: FontWeight.bold,
           ),
         );
         final valorPainter = TextPainter(
@@ -96,11 +109,71 @@ class Nodo extends CustomPainter {
           textDirection: TextDirection.ltr,
         );
         valorPainter.layout();
+
+        // Fondo blanco para el valor
+        Paint fondoValor = Paint()
+          ..style = PaintingStyle.fill
+          ..color = Colors.white;
+
+        canvas.drawRRect(
+          RRect.fromRectAndRadius(
+            Rect.fromCenter(
+              center: Offset(nodo.x, nodo.y + nodo.radio + 10),
+              width: valorPainter.width + 4,
+              height: valorPainter.height + 2,
+            ),
+            Radius.circular(3),
+          ),
+          fondoValor,
+        );
+
         valorPainter.paint(
           canvas,
           Offset(
             nodo.x - valorPainter.width / 2,
             nodo.y + nodo.radio + 5,
+          ),
+        );
+      }
+
+      // Si tiene error, mostrarlo arriba del nodo
+      if (nodo.error.abs() > 0.001) {
+        final errorText = TextSpan(
+          text: 'ε: ${nodo.error.toStringAsFixed(3)}',
+          style: TextStyle(
+            color: Colors.red.shade700,
+            fontSize: 9,
+            fontWeight: FontWeight.bold,
+          ),
+        );
+        final errorPainter = TextPainter(
+          text: errorText,
+          textDirection: TextDirection.ltr,
+        );
+        errorPainter.layout();
+
+        // Fondo blanco para el error
+        Paint fondoError = Paint()
+          ..style = PaintingStyle.fill
+          ..color = Colors.white;
+
+        canvas.drawRRect(
+          RRect.fromRectAndRadius(
+            Rect.fromCenter(
+              center: Offset(nodo.x, nodo.y - nodo.radio - 10),
+              width: errorPainter.width + 4,
+              height: errorPainter.height + 2,
+            ),
+            Radius.circular(3),
+          ),
+          fondoError,
+        );
+
+        errorPainter.paint(
+          canvas,
+          Offset(
+            nodo.x - errorPainter.width / 2,
+            nodo.y - nodo.radio - 15,
           ),
         );
       }

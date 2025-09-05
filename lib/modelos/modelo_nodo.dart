@@ -9,6 +9,7 @@ class ModeloNodo {
   double valorActivacion; // Valor de activación del nodo
   double bias; // Bias del nodo
   bool activado; // Si el nodo está activado en la propagación actual
+  double error; // Error calculado durante la retropropagación
 
   ModeloNodo(
       this.x,
@@ -20,6 +21,7 @@ class ModeloNodo {
         this.valorActivacion = 0.0,
         this.bias = 0.0,
         this.activado = false,
+        this.error = 0.0,
       });
 
   // Función de activación sigmoide

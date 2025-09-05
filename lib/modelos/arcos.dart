@@ -4,9 +4,11 @@ class ModeloArco {
   ModeloNodo partida, llegada;
   double peso;
   double senalActual; // Para animación de propagación
-  bool propagando;
+  bool propagando; // Propagación hacia adelante
+  bool retropropagando; // Retropropagación
 
   ModeloArco(this.partida, this.llegada, this.peso)
       : senalActual = 0.0,
-  propagando = false;
+        propagando = false,
+        retropropagando = false;
 }
