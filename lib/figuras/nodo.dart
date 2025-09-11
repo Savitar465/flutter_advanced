@@ -111,29 +111,29 @@ class Nodo extends CustomPainter {
         valorPainter.layout();
 
         // Fondo blanco para el valor
-        Paint fondoValor = Paint()
-          ..style = PaintingStyle.fill
-          ..color = Colors.white;
+        // Paint fondoValor = Paint()
+        //   ..style = PaintingStyle.fill
+        //   ..color = Colors.white;
 
-        canvas.drawRRect(
-          RRect.fromRectAndRadius(
-            Rect.fromCenter(
-              center: Offset(nodo.x, nodo.y + nodo.radio + 10),
-              width: valorPainter.width + 4,
-              height: valorPainter.height + 2,
-            ),
-            Radius.circular(3),
-          ),
-          fondoValor,
-        );
+        // canvas.drawRRect(
+        //   RRect.fromRectAndRadius(
+        //     Rect.fromCenter(
+        //       center: Offset(nodo.x, nodo.y + nodo.radio + 10),
+        //       width: valorPainter.width + 4,
+        //       height: valorPainter.height + 2,
+        //     ),
+        //     Radius.circular(3),
+        //   ),
+        //   fondoValor,
+        // );
 
-        valorPainter.paint(
-          canvas,
-          Offset(
-            nodo.x - valorPainter.width / 2,
-            nodo.y + nodo.radio + 5,
-          ),
-        );
+        // valorPainter.paint(
+        //   canvas,
+        //   Offset(
+        //     nodo.x - valorPainter.width / 2,
+        //     nodo.y + nodo.radio + 5,
+        //   ),
+        // );
       }
 
       // Si tiene error, mostrarlo arriba del nodo

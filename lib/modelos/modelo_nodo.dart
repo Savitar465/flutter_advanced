@@ -24,7 +24,7 @@ class ModeloNodo {
         this.error = 0.0,
       });
 
-  // Función de activación sigmoide
+  // Función de activación
   double funcionActivacion(double x) {
     return 1 / (1 + math.exp(-x));
   }

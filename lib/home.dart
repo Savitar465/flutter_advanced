@@ -456,12 +456,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                     ),
                   ),
                   SizedBox(width: 20),
-                  ElevatedButton(
-                    onPressed: organizarPorCapas,
-                    child: Text('Organizar Nodos'),
-                  ),
-                  SizedBox(width: 10),
-                  Text('Click en nodo para asignar capa', style: TextStyle(fontStyle: FontStyle.italic)),
                 ],
               ),
             ),
@@ -477,28 +471,28 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       ElevatedButton.icon(
                         onPressed: iniciarPropagacion,
                         icon: Icon(Icons.play_arrow),
-                        label: Text('Entrenar 1 Época'),
+                        label: Text('Entrenar'),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green,
                           foregroundColor: Colors.white,
                         ),
                       ),
                       SizedBox(width: 10),
-                      ElevatedButton.icon(
-                        onPressed: () async {
-                          for (int i = 0; i < 3; i++) {
-                            print('\n🔄 ===== ÉPOCA ${i + 1} =====');
-                            iniciarPropagacion();
-                            await Future.delayed(Duration(milliseconds: 1000));
-                          }
-                        },
-                        icon: Icon(Icons.repeat),
-                        label: Text('Entrenar 3 Épocas'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.indigo,
-                          foregroundColor: Colors.white,
-                        ),
-                      ),
+                      // ElevatedButton.icon(
+                      //   onPressed: () async {
+                      //     for (int i = 0; i < 3; i++) {
+                      //       print('\n🔄 ===== ÉPOCA ${i + 1} =====');
+                      //       iniciarPropagacion();
+                      //       await Future.delayed(Duration(milliseconds: 1000));
+                      //     }
+                      //   },
+                      //   icon: Icon(Icons.repeat),
+                      //   label: Text('Entrenar 3'),
+                      //   style: ElevatedButton.styleFrom(
+                      //     backgroundColor: Colors.indigo,
+                      //     foregroundColor: Colors.white,
+                      //   ),
+                      // ),
                       SizedBox(width: 20),
                       ElevatedButton.icon(
                         onPressed: asignarPesosAleatorios,
@@ -509,8 +503,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                           foregroundColor: Colors.white,
                         ),
                       ),
-                      Spacer(),
-                      Text('Tasa de Aprendizaje: ', style: TextStyle(fontSize: 14)),
+                      // Spacer(),
+                      // Text('Tasa de Aprendizaje: ', style: TextStyle(fontSize: 14)),
                       Container(
                         width: 80,
                         child: TextField(
@@ -555,13 +549,13 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                       ),
                     ),
                   // Información adicional sobre el proceso
-                  Container(
-                    margin: EdgeInsets.only(top: 5),
-                    child: Text(
-                      'Forward Pass: Círculos amarillos → | Backward Pass: Círculos rojos ←',
-                      style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic, color: Colors.grey.shade700),
-                    ),
-                  ),
+                  // Container(
+                  //   margin: EdgeInsets.only(top: 5),
+                  //   child: Text(
+                  //     'Forward Pass: Círculos amarillos → | Backward Pass: Círculos rojos ←',
+                  //     style: TextStyle(fontSize: 12, fontStyle: FontStyle.italic, color: Colors.grey.shade700),
+                  //   ),
+                  // ),
                 ],
               ),
             ),
